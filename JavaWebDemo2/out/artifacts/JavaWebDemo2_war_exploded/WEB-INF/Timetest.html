@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图测试</title>
+</head>
+<body>
+    <img src="image/demo1.jpg" id="demo">
+</body>
+<script>
+    var number=1;
+
+    function fun(){
+        number++;
+        if (number>2){
+            number =1;
+        }
+        var demo=document.getElementById("demo");
+        demo.src="image/demo"+number+".jpg";
+
+    }
+    setInterval(fun, 1000);
+  /*  setTimeout(fun,1000);*/
+</script>
+</html>

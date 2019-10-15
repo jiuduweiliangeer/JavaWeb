@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见事件</title>
+    <script>
+        //1. onblur:失去焦点事件
+/*        document.getElementById("username").onblur=function () {
+            alert("失去焦点");
+        }*/
+        /*        document.getElementById("username").onfocus=function () {
+                    alert("获得焦点");
+                }*/
+        //2. onload:加载完成事件
+        window.onload=function () {
+ /*           document.getElementById("username").onblur=function () {
+                alert("失去焦点");
+            }
+            //3.绑定鼠标移动到元素之上事件
+            document.getElementById("username").onmouseover=function () {
+                alert("鼠标移动到了元素上");
+            }*/
+            //onmousedown 鼠标按钮按下
+/*            document.getElementById("username").onmousedown=function (ev) {//ev是浏览器执行这个方法返回的属性
+                alert(ev.button);//鼠标从左到右分别是0-2
+            }*/
+/*            document.getElementById("username").onkeydown=function (ev) {
+                if (ev.keyCode==13){
+                    alert("提交表单");
+                }
+            }*/
+/*            document.getElementById("username").onchange=function (ev) {
+                alert("改变了");
+            }
+            document.getElementById("city").onchange=function (ev) {
+                alert("改变了");
+            }*/
+/*            document.getElementById("form").onsubmit=function () {
+                var flag=false;
+                return flag;
+            }*/
+            document.getElementById("reload").onclick=function () {
+                location.reload();
+            }
+            function Form() {
+                return false;
+            }
+        }//窗口加载完成,当window完全加载完毕时，才执行相应的js代码，所以此处可以把script标签放在上方
+    </script>
+</head>
+<body>
+<!--
+function fun(){
+    return Form();
+}
+
+-->
+<form id="form"  action="#" onclick="return From();">
+    <input type="text" id="username" name="username">
+    <select name="cityoption" id="city">
+        <option>--请选择--</option>
+        <option>--北京--</option>
+        <option>--上海--</option>
+        <option>--广州--</option>
+        <option>--深圳--</option>
+    </select>
+    <input type="submit" value="提交">
+    <input type="button" value="重置" id="reload">
+</form>
+<!--<input type="button" value="重置" id="reload">-->
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户测试案例</title><!--
+    <script language="JavaScript" type="text/javascript">
+        function checkContent() {
+            for (var i=0;i<document.register.elements.length;i++){
+                if (document.register.elements[i].value.length==0){
+                    alert(document.register.elements[i].title+"不能为空");
+                    document.register.elements[i].focus();
+                    return false;
+                }
+                if(document.register.password1.value!=document.register.password2.value){
+                    alert("密码不相同");
+                    document.register.elements[i].focus();
+                    return false;
+                }
+
+            }
+        }
+        function date() {
+            var Date=new Date();
+            alert(Date.getFullYear()+Date.getMonth());
+        }
+        date();
+    </script>-->
+</head>
+<body>
+    <div>
+        <form name="UserReg" method="POST">
+            <table>
+                <tr>
+                    <td>姓名：</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td>性别：</td>
+                    <td><input type="radio" name="sex">男</input></td>
+                    <td><input type="radio" name="sex">女</input></td>
+                </tr>
+                <tr>
+                    <td>请选择感兴趣的小组：</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="g1" value="culture"> 文化</td>
+                    <td><input type="checkbox" name="g2" value="photo"> 摄影</td>
+                    <td><input type="checkbox" name="g3" value="entertainment"> 娱乐</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="g4" value="fashion"> 时尚</td>
+                    <td><input type="checkbox" name="g5" value="life"> 生活</td>
+                    <td><input type="checkbox" name="g6" value="tech"> 科技</td>
+                </tr>
+                <tr>
+                    <td>请选择你居住的城市:</td>
+                    <td><select name="city" id="c1">
+                        <option value="chengdu" selected="selected">成都</option>
+                        <option value="shanghai">上海</option>
+                        <option value="beijing">北京</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>请选择你要上传的照片:</td>
+                    <td><input type="hidden" name="code"></td>
+                </tr>
+                <tr>
+                    <td>请留言:</td>
+                    <td><textarea name="demo" id="demo1" cols="50" rows="6"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="tijiao" value=" 提交"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+<!--<form name="register" onsubmit="return checkContent()">
+    <table>
+        <tr>
+            <td>
+                用户名：
+            </td>
+            <td>
+                <input type="text" name="username" title="用户名"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码：
+            </td>
+            <td>
+                <input type="password" name="password1" title="密码"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                确认密码：
+            </td>
+            <td>
+                <input type="password" name="password2" title="确认密码"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="text" name="email" title="Email"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="right">
+                <input type="submit" value="确认提交"/>
+            </td>
+        </tr>
+    </table>-->
+</form>
+
+</body>
+</html>

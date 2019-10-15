@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOMdemo</title>
+</head>
+<body>
+    <img src="image/demo1.jpg" id="demo">
+    <h1 id="demo1">我要学习javaweb</h1>
+</body>
+<script>
+/*         var demo1=document.getElementById("demo");
+         alert("开始切换图片")
+         demo1.src="image/demo2.jpg";*/
+    var demo1=document.getElementById("demo");
+    var demo1t=demo1.src;
+    var demo3=document.getElementById("demo1");
+    var demo3t=demo3.textContent;
+    var flag=false;
+    var flag2=false;
+    function fun() {
+        if (flag){
+            demo3.innerHTML=demo3t;
+            flag=false;
+        }
+        else{
+            demo3.innerHTML="我已经在路上了！";
+            flag=true;
+        }
+    }
+    function fun2(){
+        if (flag2){
+            demo1.src=demo1t;
+            flag2 = false;
+        } else{
+            demo1.src="image/demo2.jpg";
+            flag2=true;
+        }
+    }
+    demo3.onclick=fun;
+    demo1.onclick=fun2;
+</script>
+</html>

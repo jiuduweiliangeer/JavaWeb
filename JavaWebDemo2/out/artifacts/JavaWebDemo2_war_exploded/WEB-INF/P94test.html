@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分支结构</title>
+</head>
+<script>
+    function PrintScore() {
+        var n=document.score.Score.value;
+        if (n>=90&&n<=100){
+            document.getElementById("Rank").value="优秀";
+        }
+    }
+</script>
+<body>
+    <form name="score" onsubmit="return PrintScore()">
+        <tr>
+            <td>成绩：</td>
+            <td>
+                <input type="text" name="Score" title="成绩">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value="提交">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                等级:
+            </td>
+            <td>
+                <input type="text" name="rank" id="Rank">
+            </td>
+        </tr>
+    </form>
+</body>
+</html>

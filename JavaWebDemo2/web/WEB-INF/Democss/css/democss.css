@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    font-family: Verdana,Arial,"宋体";
+    background: #444;
+}
+#box{
+    width: 1024px;
+    margin: 0 auto;
+    background: #fff;
+}

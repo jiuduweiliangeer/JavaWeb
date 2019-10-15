@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点测试</title>
+    <style>
+        div{
+            text-align: center;
+            margin: 5px;
+        }
+        table{
+            border: 1px solid red;
+            text-align: center;
+            margin: auto;
+            width: 500px;
+        }
+        th,td{
+            border: 1px solid royalblue;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <input type="text" id="id" placeholder="请输入编号">
+            <input type="text" id="name" placeholder="请输入姓名">
+            <input type="text" id="sex" placeholder="请输入你的性别">
+            <input type="button" id="btn" value="提交">
+            <table id="append">
+                <caption>节点信息测试表</caption>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>操作1</th>
+                    <th>操作2</th>
+                </tr>
+                <tr>
+                    <td>001</td>
+                    <td>李俊</td>
+                    <td>男</td>
+                    <td><a href="javascript:" onclick="deleter(this);">删除</a></td>
+                    <td><a href="javascript:">修改</a></td>
+                </tr>
+            </table>
+        </div>
+</body>
+<script>
+    document.getElementById("btn").onclick=function () {
+        var id=document.getElementById("id").value;
+        var name=document.getElementById("name").value;
+        var sex=document.getElementById("sex").value;
+/*        var td_id=document.createElement("td");
+        var id_text=document.createTextNode(id);
+        td_id.appendChild(id_text);
+        var td_name=document.createElement("td");
+        var name_text=document.createTextNode(name);
+        td_name.appendChild(name_text);
+        var td_sex=document.createElement("td");
+        var sex_text=document.createTextNode(sex);
+        td_sex.appendChild(sex_text);
+        var link_a=document.createElement("a");
+        link_a.setAttribute("href","javascript:");
+        link_a.setAttribute("onclick","deleter(this);");
+        var link_a_text=document.createTextNode("删除");
+        link_a.appendChild(link_a_text);
+        var link_td=document.createElement("td");
+        link_td.appendChild(link_a);
+        var link_a2=document.createElement("a");
+        link_a2.setAttribute("href","javascript:");
+        var link_a2_text=document.createTextNode("修改");
+        link_a2.appendChild(link_a2_text);
+        var link_td2=document.createElement("td");
+        link_td2.appendChild(link_a2);
+        var table_tr=document.createElement("tr");
+        table_tr.appendChild(td_id);
+        table_tr.appendChild(td_name);
+        table_tr.appendChild(td_sex);
+        table_tr.appendChild(link_td);
+        table_tr.appendChild(link_td2);
+        var table=document.getElementById("append");
+        table.appendChild(table_tr);*/
+        var table=document.getElementById("append");
+        table.innerHTML+="                <tr>\n" +
+            "                    <td>id</td>\n" +
+            "                    <td>name</td>\n" +
+            "                    <td>sex</td>\n" +
+            "                    <td><a href=\"javascript:\" onclick=\"deleter(this);\">删除</a></td>\n" +
+            "                    <td><a href=\"javascript:\">修改</a></td>\n" +
+            "                </tr>"//使用innerHTML简化代码，上方代码具有面对对象思想但是不够简洁
+    }
+    function deleter(object) {
+        var tablethis=object.parentNode.parentNode.parentNode;//a->td->tr->table
+        var trthis=object.parentNode.parentNode;//a->td->tr
+        tablethis.removeChild(trthis);
+    }
+</script>
+</html>

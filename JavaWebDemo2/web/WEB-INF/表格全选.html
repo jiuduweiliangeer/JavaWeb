@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格全选</title>
+    <style>
+        div{
+            text-align: center;
+            margin: 5px;
+        }
+        table{
+            border: 1px solid red;
+            text-align: center;
+            margin: auto;
+            width: 500px;
+        }
+        th,td{
+            border: 1px solid royalblue;
+        }
+        .out{
+            background-color: white;
+        }
+        .move{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <form action="#" id="Select">
+        <table id="table">
+            <caption>
+                学生信息表
+            </caption>
+            <tr name="tr">
+                <th><input type="checkbox" name="cb" id="first"></th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+            <tr name="tr">
+                <td><input type="checkbox" name="cb"></td>
+                <td>1</td>
+                <td>令狐冲</td>
+                <td>男</td>
+                <td><a href="javascript:;" onclick="deleter1(this)">删除</a></td>
+            </tr>
+            <tr name="tr">
+                <td><input type="checkbox" name="cb"></td>
+                <td>2</td>
+                <td>任我行</td>
+                <td>男</td>
+                <td><a href="javascript:;" onclick="deleter1(this)">删除</a></td>
+            </tr>
+            <tr name="tr">
+                <td><input type="checkbox" name="cb"></td>
+                <td>3</td>
+                <td>岳不群</td>
+                <td>？</td>
+                <td><a href="javascript:;" onclick="deleter1(this)">删除</a></td>
+            </tr>
+        </table>
+            <input type="button" value="全选" id="all">
+            <input type="button" value="全不选" id="no">
+            <input type="button" value="反选" id="demo">
+            <input type="button" value="刷新" id="reload">
+    </form>
+</div>
+</body>
+<script>
+    document.getElementById("all").onclick = function (ev) {
+        var cbs=document.getElementsByName("cb");
+        for (i = 0;i<=cbs.length;i++){
+            cbs[i].checked=true;
+        }
+    };
+
+    document.getElementById("no").onclick=function (ev) {
+        var cbs=document.getElementsByName("cb");
+        for (i = 0;i<=cbs.length;i++){
+            cbs[i].checked=false;
+        }
+    };
+    document.getElementById("demo").onclick=function () {
+        var cbs=document.getElementsByName("cb");
+        for (i=0;i<=cbs.length;i++){
+            if (cbs[i].checked==true){
+                cbs[i].checked=false;
+            } else{
+                cbs[i].checked=true;
+            }
+        }
+    };
+    document.getElementById("reload").onclick=function (ev) {
+        window.location.reload();
+    };
+    var tr=document.getElementsByName("tr");
+    for (var i = 0; i <tr.length ; i++) {
+        tr[i].onmousemove=function () {
+            this.className="move";
+        };
+        tr[i].onmouseout=function () {
+            this.className="out";
+        };
+    }
+    document.getElementById("first").onclick=function () {
+        var cbs=document.getElementsByName("cb");
+        for (var i=0;i<=cbs.length;i++){
+            cbs[i].checked=this.checked;
+        }
+    }
+</script>
+</html>

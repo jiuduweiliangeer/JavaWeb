@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node</title>
+    <style>
+        div{
+            border:1px solid red;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            div2
+        </div>
+        div1
+    </div>
+    <a href="javascript:void(0)" id="de1">删除子节点</a>
+  <!--  <input type="button" id="de1" value="删除子节点">-->
+</body>
+<script>
+    document.write("sss")
+    var div2=document.getElementById("div2");
+    var element_a=document.getElementById("de1");
+    var element_b=document.getElementById("div1");
+    element_a.onclick=function () {
+        element_b.removeChild(div2);
+    }
+</script>
+</html>
