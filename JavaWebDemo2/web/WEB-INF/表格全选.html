@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <title>表格全选</title>
     <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background: url("image/demo3.jpg") no-repeat;
+            width: 100%;
+            height: 100%;
+        }
         div{
-            text-align: center;
-            margin: 5px;
+            width: 900px;
+            height: 500px;
+            border: 8px solid #EEEEEE;
+            background-color: white;
+            /*让div水平居中*/
+            margin: auto;
+            margin-top: 60px;
         }
         table{
             border: 1px solid red;
@@ -23,10 +38,30 @@
         .move{
             background-color: pink;
         }
+        #placeholder{
+            text-align: center;
+            margin-top: 30px;
+        }
+        #number,#name,#sex{
+            width: 251px;
+            height: 32px;
+            border: 1px solid #A6A6A6;
+            border-radius: 5px;
+        }
+        #onclick{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 <div id="div">
+    <p id="placeholder">
+        <input type="text" placeholder="请输入编号：" id="number">
+        <input type="text" placeholder="请输入姓名:" id="name">
+        <input type="text" placeholder="请输入性别" id="sex">
+        <input type="button" value="提交" id="btn">
+    </p>
+
     <form action="#" id="Select">
         <table id="table">
             <caption>
@@ -61,14 +96,77 @@
                 <td><a href="javascript:;" onclick="deleter1(this)">删除</a></td>
             </tr>
         </table>
+        <p id="onclick">
             <input type="button" value="全选" id="all">
             <input type="button" value="全不选" id="no">
             <input type="button" value="反选" id="demo">
             <input type="button" value="刷新" id="reload">
+        </p>
+
     </form>
 </div>
 </body>
 <script>
+    document.getElementById("btn").onclick=function (ev) {
+      var number=document.getElementById("number");
+      var name=document.getElementById("name");
+      var sex=document.getElementById("sex");
+      var table=document.getElementById("table");
+      table.innerHTML+="            <tr name=\"tr\">\n" +
+          "                <td><input type=\"checkbox\" name=\"cb\"></td>\n" +
+          "                <td>number</td>\n" +
+          "                <td>name</td>\n" +
+          "                <td>sex</td>\n" +
+          "                <td><a href=\"javascript:;\" onclick=\"deleter1(this)\">删除</a></td>\n" +
+          "            </tr>"
+        document.getElementById("all").onclick = function (ev) {
+            var cbs=document.getElementsByName("cb");
+            for (i = 0;i<=cbs.length;i++){
+                cbs[i].checked=true;
+            }
+        };
+
+        document.getElementById("no").onclick=function (ev) {
+            var cbs=document.getElementsByName("cb");
+            for (i = 0;i<=cbs.length;i++){
+                cbs[i].checked=false;
+            }
+        };
+        document.getElementById("demo").onclick=function () {
+            var cbs=document.getElementsByName("cb");
+            for (i=0;i<=cbs.length;i++){
+                if (cbs[i].checked==true){
+                    cbs[i].checked=false;
+                } else{
+                    cbs[i].checked=true;
+                }
+            }
+        };
+        document.getElementById("reload").onclick=function (ev) {
+            window.location.reload();
+        };
+        var tr=document.getElementsByName("tr");
+        for (var i = 0; i <tr.length ; i++) {
+            tr[i].onmousemove=function () {
+                this.className="move";
+            };
+            tr[i].onmouseout=function () {
+                this.className="out";
+            };
+        }
+        document.getElementById("first").onclick=function () {
+            var cbs=document.getElementsByName("cb");
+            for (var i=0;i<=cbs.length;i++){
+                cbs[i].checked=this.checked;
+            }
+        }
+
+    };
+    function deleter1(object){
+        var table=object.parentNode.parentNode.parentNode;
+        var tr=object.parentNode.parentNode;
+        table.removeChild(tr);
+    }
     document.getElementById("all").onclick = function (ev) {
         var cbs=document.getElementsByName("cb");
         for (i = 0;i<=cbs.length;i++){
