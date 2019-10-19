@@ -108,17 +108,17 @@
 </body>
 <script>
     document.getElementById("btn").onclick=function (ev) {
-      var number=document.getElementById("number");
-      var name=document.getElementById("name");
-      var sex=document.getElementById("sex");
-      var table=document.getElementById("table");
-      table.innerHTML+="            <tr name=\"tr\">\n" +
-          "                <td><input type=\"checkbox\" name=\"cb\"></td>\n" +
-          "                <td>number</td>\n" +
-          "                <td>name</td>\n" +
-          "                <td>sex</td>\n" +
-          "                <td><a href=\"javascript:;\" onclick=\"deleter1(this)\">删除</a></td>\n" +
-          "            </tr>"
+        var number=document.getElementById("number").value;
+        var name=document.getElementById("name").value;
+        var sex=document.getElementById("sex").value;
+        var table=document.getElementById("table");
+        table.innerHTML+="            <tr name=\"tr\">\n" +
+            "                <td><input type=\"checkbox\" name=\"cb\"></td>\n" +
+            "                <td>"+number+"</td>\n" +
+            "                <td>"+name+"</td>\n" +
+            "                <td>"+sex+"</td>\n" +
+            "                <td><a href=\"javascript:;\" onclick=\"deleter1(this)\">删除</a></td>\n" +
+            "            </tr>"
         document.getElementById("all").onclick = function (ev) {
             var cbs=document.getElementsByName("cb");
             for (i = 0;i<=cbs.length;i++){
