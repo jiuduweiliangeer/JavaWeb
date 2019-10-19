@@ -66,13 +66,54 @@
             border-radius: 5px;
             padding-left: 10px;
         }
-        #btn{
+        #btn,#btn_n{
             width: 150px;
             height: 40px;
             background-color: #FFD026;
             border: 1px solid #FFD026;
         }
+        .demo{
+            color: red;
+        }
     </style>
+    <script>
+        window.onload=function () {
+            document.getElementById("form").onsubmit=function register(){
+                return checkPassword()&&checkUsername();
+            };
+            document.getElementById("username").onblur=checkUsername;
+            document.getElementById("password").onblur=checkPassword;
+            document.getElementById("btn_n").onclick=function () {
+                location.reload();
+            }
+        };
+        function checkUsername() {
+            var flag;
+            var reg=/^\w{6,12}$/;
+            var s_username=document.getElementById("s_username");
+            var username=document.getElementById("username").value;
+            flag=reg.test(username);
+            if (flag){
+                s_username.innerHTML="<img width='30'height='30' src='image/demo3.jpg'>"
+            } else{
+                s_username.innerHTML="用户名不符合规定"
+            }
+            return flag;
+        }
+        function checkPassword() {
+            var flag;
+            var reg=/^\w{6,12}$/;
+            var s_password=document.getElementById("s_password");
+            var password=document.getElementById("password").value;
+            flag=reg.test(password);
+            if(flag){
+                s_password.innerHTML="<img width='30' height='30' src='image/demo3.jpg'>"
+            }else{
+                s_password.innerHTML="密码不符合规定"
+            }
+            return flag;
+        }
+    </script>
 </head>
 <body>
 <div class="rg_layout">
@@ -82,15 +123,18 @@
     </div>
     <div class="rg_center">
         <div class="rg_form">
-            <form action="#">
+            <form action="#" method="get" onsubmit="return register()" id="form">
                 <table>
                     <tr>
                         <td class="td_left">用户名</td>
-                        <td class="td_right"><input type="text" placeholder="请输入账号" id="username" name="username"></td>
+                        <td class="td_right"><input type="text" placeholder="请输入账号" id="username" name="username">
+                            <span id="s_username" class="demo"></span>
+                        </td>
                     </tr>
                     <tr>
                         <td class="td_left">密码</td>
-                        <td class="td_right"><input type="password" placeholder="请输入密码" id="password" name="password"></td>
+                        <td class="td_right"><input type="password" placeholder="请输入密码" id="password" name="password">
+                        <span id="s_password" class="demo"></span></td>
                     </tr>
                     <tr>
                         <td class="td_left">Email</td>
@@ -119,6 +163,7 @@
                     </tr>
                     <tr>
                         <td class="td_left"><input type="submit" value="注册" id="btn"></td>
+                        <td><input type="button" value="刷新" id="btn_n"></td>
                     </tr>
                 </table>
             </form>
