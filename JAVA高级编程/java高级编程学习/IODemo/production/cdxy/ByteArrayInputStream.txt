@@ -1,0 +1,28 @@
+	protected byte[] buf;//内置缓存数组
+	
+	protected int pos;//buf中下一个被读取的字节下标
+	
+	protected int count;//buf中有效可读字节总数
+	
+	protected int mark=0;//标记当前流读取下一个字节的位置、默认是起始下标
+	
+	ByteArrayInputStream(byte[] buf);//使用传入的整个buf字节数组作为bais的缓存字节数组供读取
+	
+	ByteArrayInputStream(byte[] buf, int off, int len);//使用从下标off开始len个字节作为bais的缓存字节数组供读取
+
+	
+	synchronized int available();			当前流中有效可供读取的字节数。
+	
+	void close();				关闭当前流
+	
+	boolean markSupport();		当前流是否支持mark
+	
+	void mark(int readlimit);	标记当前流读取的位置
+	
+	synchronized int read();					读取buf中下一个字节
+	
+	synchronized int read(byte[] b, int offset, int len)		将buf中字节读取到下标从offset开始len个字节的字节数组中
+	
+	synchronized reset();		将当前流的读取位置重置到最后一次调用mark方法时的位置
+	
+	synchronized long skip(long n);			跳过bos中n个字节
